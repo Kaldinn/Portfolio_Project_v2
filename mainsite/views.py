@@ -4,9 +4,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+
 from .forms import CreateUserForm
 from .models import *
 from .forms import *
+from .weather import *
 
 # Create your views here.
 
@@ -15,7 +17,14 @@ def home_page(request):
     return render(request, 'mainsite/index.html')
 
 def weather_app(request):
-    return render(request, 'mainsite/weather.html')
+     if request.method == 'POST':
+        city = request.POST.get('city')
+        weather_info = get_weather(city)
+        
+        context = {'weather_info': weather_info}
+        return render(request, "mainsite/weather.html", context)
+     else:
+        return render(request, 'mainsite/weather.html')
 
 def login_page(request):
 

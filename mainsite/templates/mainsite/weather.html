@@ -10,8 +10,6 @@
 
         <link rel="stylesheet" href="{% static 'css/weather.css' %}">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <script src="/static/JS/script.js"></script>
-
     </head>
 
     <body>
@@ -21,7 +19,8 @@
             </div>
             
             <div class="input">
-                <form action="/weather" method="post">
+                <form action="" method="POST">
+                  {% csrf_token %}
                     <label for="city">Enter city name:</label>
                     <input type="text" id="city" name="city">
                     <input type="submit" value="Get Weather">
@@ -37,7 +36,7 @@
                     <p>{{ weather_info.temperature | safe }}</p>
                     <p>{{ weather_info.description | safe }}</p>
                     <div class="icon-container">
-                      <img src="/static/icons/{{ weather_info.icon }}" alt="Weather Icon">
+                      <img src="{% static 'icons/' %}{{ weather_info.icon }}" alt="Weather Icon">
                     </div>
                   {% endif %}
                 {% endif %}

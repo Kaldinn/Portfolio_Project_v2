@@ -70,6 +70,9 @@
     border-radius: 0.25rem;
     cursor: pointer;
   }
+  #task-create{
+    width: 200px;
+  }
   
   .form-input input[type="submit"]:hover {
     background-color: #0056b3;

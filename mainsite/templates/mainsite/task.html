@@ -19,7 +19,7 @@
             <form method="POST" action="">
                 {% csrf_token %}
                 {{form.title}}
-                <input type="submit" name="Create Task" value="Submit">
+                <input type="submit" id="task-create" name="Create Task" value="Create Task">
             </form>
         </div>
             {% for task in tasks%}
