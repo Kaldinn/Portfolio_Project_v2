@@ -18,6 +18,7 @@ from .weather import *
 def home_page(request):
     return render(request, 'mainsite/index.html')
 
+@csrf_exempt
 def weather_app(request):
      if request.method == 'POST':
         city = request.POST.get('city')
@@ -45,7 +46,7 @@ def login_page(request):
 
     return render(request, 'mainsite/login.html')
 
-
+@csrf_exempt
 def register_page(request):
 
     form = CreateUserForm()
@@ -62,6 +63,7 @@ def register_page(request):
 
     return render(request, 'mainsite/register.html', context)
 
+@csrf_exempt
 @login_required
 def task_page(request):
     tasks = Task.objects.all()          #Pobiera wszystkie obiekty Task z bazy danych
@@ -80,6 +82,7 @@ def task_page(request):
     }
     return render(request, 'mainsite/task.html', context)
 
+@csrf_exempt
 @login_required
 def update_task(request, pk):
 
@@ -98,6 +101,7 @@ def update_task(request, pk):
 
     return render(request, 'mainsite/update_task.html', context)
 
+@csrf_exempt
 @login_required
 def delete_task(request, pk):
     item = Task.objects.get(id=pk)
@@ -112,6 +116,7 @@ def delete_task(request, pk):
 
     return render(request, 'mainsite/delete.html', context)
 
+@csrf_exempt
 def logout_user(request):
     logout(request)
     return redirect('login')
