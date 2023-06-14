@@ -7,6 +7,6 @@ function smoothScroll(event, target) {
     });
   }
 
-  function openCV(){
-    window.open("/mainsite/static/cv/DanielSkulimowski-Eng-CV.pdf")
-  }
+  // function openCV(){
+  //   window.open("/mainsite/static/cv/DanielSkulimowski-Eng-CV.pdf")
+  // }
