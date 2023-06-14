@@ -146,3 +146,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     'https://portfolioprojectv2-production.up.railway.app',
 ]
+
+CSRF_COOKIE_SECURE = False
