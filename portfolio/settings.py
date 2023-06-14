@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-jcvg4i-2j2c==9*(et9q6-0qhl)dgk22trd4a)ne5*x2&ytl=r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['portfolioprojectv2-production.up.railway.app']
+# ALLOWED_HOSTS = ['portfolioprojectv2-production.up.railway.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainsite'
+    'mainsite',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -48,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -127,9 +130,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/mainsite/static/'
+STATIC_ROOT = '/mainsite/static/'
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    'https://portfolioprojectv2-production.up.railway.app',
+]
