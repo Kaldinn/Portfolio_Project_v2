@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt
 
 
 from .forms import CreateUserForm
@@ -28,7 +28,7 @@ def weather_app(request):
      else:
         return render(request, 'mainsite/weather.html')
 
-@csrf_protect
+@csrf_exempt
 def login_page(request):
 
     if request.method == 'POST':
