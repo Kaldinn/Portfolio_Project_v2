@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/budget.css' %}">
+
+    <title>Budget</title>
+</head>
+<body>
+    <form method="" action="POST">
+        <label for="input_item">Dodaj rzecz:</label>
+        <input type="text" id="input_item" name="item" required>
+      
+        <label for="select_type">Typ:</label>
+        <select id="select_type" name="type" required>
+          <option value="usluga">Usługa</option>
+          <option value="material">Materiał</option>
+        </select>
+      
+        <label for="select_invoice">Faktura:</label>
+        <select id="select_invoice" name="invoice" required>
+          <option value="faktura">Faktura</option>
+          <option value="brak">Brak</option>
+        </select>
+      
+        <label for="select_tax">Podatek (%):</label>
+        <select id="select_tax" name="tax" required>
+          <option value="8">8%</option>
+          <option value="23">23%</option>
+        </select>
+      
+        <label for="input_price">Cena:</label>
+        <input type="number" id="input_price" name="price" required>
+      
+        <button type="submit">Dodaj</button>
+      </form>
+</body>
+</html>

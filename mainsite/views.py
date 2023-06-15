@@ -116,6 +116,10 @@ def delete_task(request, pk):
 
     return render(request, 'mainsite/delete.html', context)
 
+def budget_page(request):
+    return render(request, 'mainsite/budget.html')
+
+
 @csrf_exempt
 def logout_user(request):
     logout(request)

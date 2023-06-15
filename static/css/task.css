@@ -1,6 +1,7 @@
 * {
     font-size: 1rem;
     margin: 0;
+
   }
   
   a {
@@ -23,7 +24,7 @@
     justify-content: center;
     align-items: center;
     padding: 2vh;
-    background: #39a9db;
+    background: #74cfbf;;
   }
   
   .title h1 {
