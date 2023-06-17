@@ -117,44 +117,44 @@ def delete_task(request, pk):
     return render(request, 'mainsite/delete.html', context)
 
 
-def budget_page(request):
-    budget_items = Budget.objects.all()
+# def budget_page(request):
+#     budget_items = Budget.objects.all()
 
-    total_sum = sum(item.price for item in budget_items)
+#     total_sum = sum(item.price for item in budget_items)
 
-    if request.method == 'POST':
-        form = BudgetForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/budget')
-    else:
-        form = BudgetForm()
+#     if request.method == 'POST':
+#         form = BudgetForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/budget')
+#     else:
+#         form = BudgetForm()
 
-    context = {
-        'budget_items': budget_items,
-        'form': form,
-        'total_sum': total_sum
-    }
+#     context = {
+#         'budget_items': budget_items,
+#         'form': form,
+#         'total_sum': total_sum
+#     }
         
-    return render(request, 'mainsite/budget.html', context)
+#     return render(request, 'mainsite/budget.html', context)
 
-def delete_budget(request, pk):
-    budget_items = Budget.objects.get(id=pk)
-    total_sum = sum(item.price for item in budget_items)
+# def delete_budget(request, pk):
+#     budget_items = Budget.objects.get(id=pk)
+#     total_sum = sum(item.price for item in budget_items)
 
-    if request.method == 'POST':
-        form = BudgetForm(request.POST)
-        budget_items.delete()
-        return redirect("/budget")
-    else:
-        form = BudgetForm()
+#     if request.method == 'POST':
+#         form = BudgetForm(request.POST)
+#         budget_items.delete()
+#         return redirect("/budget")
+#     else:
+#         form = BudgetForm()
 
-    context = {
-        'budget_items': budget_items,
-        'form': form,
-        'total_sum': total_sum
-    }
-    return render(request, 'mainsite/budget.html', context)
+#     context = {
+#         'budget_items': budget_items,
+#         'form': form,
+#         'total_sum': total_sum
+#     }
+#     return render(request, 'mainsite/budget.html', context)
 
 
 @csrf_exempt

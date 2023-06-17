@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{% static 'css/budget.css' %}"> -->
+
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
@@ -70,14 +70,7 @@
       </tr>
     </thead>
     <tbody>
-      <!-- {% for budget_item in budget_items %}
-      <tr>
-        <td>{{ budget_item.title }}</td>
-        <td>{{ budget_item.get_type_display }}</td>
-        <td>{{ budget_item.tax }}%</td>
-        <td>{{ budget_item.price }}<button class="float-end btn btn-danger btn-sm delete-button d-none">X</button></td>
-      </tr>
-      {% endfor %} -->
+
       {% for budget_item in budget_items %}
         <tr>
           <td>{{ budget_item.title }}</td>
@@ -137,11 +130,8 @@
     event.preventDefault();
   });
 
-  // form.addEventListener('submit', (event) => {
-  //   event.preventDefault();
-  // });
 
   </script>
 
 </body>
-</html>
+</html>  -->
