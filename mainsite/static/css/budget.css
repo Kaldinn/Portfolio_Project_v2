@@ -2,7 +2,7 @@ form {
     max-width: 400px;
     margin: 0 auto;
     padding: 3%;
-    border: 1px  solid green;
+
     border-radius: 10%;
     background: #5dc262;
   }
@@ -37,3 +37,4 @@ form {
   button[type="submit"]:hover {
     background-color: #45a049;
   }
+  

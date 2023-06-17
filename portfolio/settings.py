@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
     'mainsite',
-    'corsheaders'
-    ''
+    'corsheaders',
+    'bootstrap5'
 ]
 
 MIDDLEWARE = [

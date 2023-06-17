@@ -14,3 +14,11 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2'] 
+
+
+class BudgetForm(forms.ModelForm):
+    type = forms.ChoiceField(choices=Budget.TYPE_CHOICES)
+
+    class Meta:
+        model = Budget
+        fields = ['title', 'type', 'tax', 'price']

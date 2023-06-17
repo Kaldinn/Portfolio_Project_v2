@@ -10,6 +10,8 @@ class Task(models.Model):
     def __str__(self):
         return self.title
     
+
+    
 class Budget(models.Model):
     TYPE_CHOICES = [
         ('usluga', 'Usługa'),

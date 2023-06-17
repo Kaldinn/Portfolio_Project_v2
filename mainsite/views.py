@@ -66,14 +66,14 @@ def register_page(request):
 @csrf_exempt
 @login_required
 def task_page(request):
-    tasks = Task.objects.all()          #Pobiera wszystkie obiekty Task z bazy danych
+    tasks = Task.objects.all()          
     
     form = TaskForm()
 
-    if request.method == 'POST':        #Sprawdzanie czy jest żadanie typu POST
-        form = TaskForm(request.POST)   #Przypisanie do zmiennej dane z żadania POST jako argument
-        if form.is_valid():             #Sprawdzainie czy przeszło walidacje
-            form.save()                 #Zapisuje dane w bazie danych
+    if request.method == 'POST':        
+        form = TaskForm(request.POST)   
+        if form.is_valid():             
+            form.save()                 
         return redirect('/tasks')         
 
     context = {
@@ -116,8 +116,45 @@ def delete_task(request, pk):
 
     return render(request, 'mainsite/delete.html', context)
 
+
 def budget_page(request):
-    return render(request, 'mainsite/budget.html')
+    budget_items = Budget.objects.all()
+
+    total_sum = sum(item.price for item in budget_items)
+
+    if request.method == 'POST':
+        form = BudgetForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/budget')
+    else:
+        form = BudgetForm()
+
+    context = {
+        'budget_items': budget_items,
+        'form': form,
+        'total_sum': total_sum
+    }
+        
+    return render(request, 'mainsite/budget.html', context)
+
+def delete_budget(request, pk):
+    budget_items = Budget.objects.get(id=pk)
+    total_sum = sum(item.price for item in budget_items)
+
+    if request.method == 'POST':
+        form = BudgetForm(request.POST)
+        budget_items.delete()
+        return redirect("/budget")
+    else:
+        form = BudgetForm()
+
+    context = {
+        'budget_items': budget_items,
+        'form': form,
+        'total_sum': total_sum
+    }
+    return render(request, 'mainsite/budget.html', context)
 
 
 @csrf_exempt
