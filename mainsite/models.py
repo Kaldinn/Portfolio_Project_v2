@@ -12,16 +12,3 @@ class Task(models.Model):
     
 
     
-class Budget(models.Model):
-    TYPE_CHOICES = [
-        ('usluga', 'Usługa'),
-        ('material', 'Materiał'),
-    ]
-    TAX_CHOICES = [
-        (8, '8%'),
-        (23, '23%'),
-    ]
-    title = models.CharField(max_length=200)
-    type = models.CharField(max_length=10, choices=TYPE_CHOICES)
-    tax = models.IntegerField(choices=TAX_CHOICES)
-    price = models.IntegerField(default=0)
